@@ -29,7 +29,6 @@ class NewsList extends Component {
                 this.setState({
                     teams
                 })
-
             })
             // axios.get(`${URL}/teams`)
             // .then( response => {
