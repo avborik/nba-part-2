@@ -17,7 +17,7 @@ const firebaseArticles = firebaseDB.ref('articles');
 const firebaseTeams = firebaseDB.ref('teams');
 const firebasseVideos = firebaseDB.ref('videos');
 
-const firebaseLooper = () => {
+const firebaseLooper = (snapshot) => {
     const data = [];
     snapshot.forEach((childSnapshot)=>{
         data.push({
