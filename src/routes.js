@@ -12,8 +12,9 @@ import VideosMain from './components/Articles/Videos/Main/index';
 import SignIn from './components/signin/signin';
 
 class Routes extends Component {
-
+    
     render(){
+        console.log(this.props)
         return(
             <Layout>
                 <Switch>
