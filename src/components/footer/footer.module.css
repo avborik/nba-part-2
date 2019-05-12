@@ -1,14 +1,17 @@
 .footer {
-    margin-top: 20px;
+    margin-top: 200px;
     background: #242424;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .logo img {
     height: 20px;
     padding: 10px;
+    
+
 }
 
 .right {
