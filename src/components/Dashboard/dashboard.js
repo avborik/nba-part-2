@@ -157,7 +157,33 @@ class Dashboard extends Component {
         console.log(dataToSubmit)
 
         if(formIsValid){
-            console.log('SUBMIT POST')
+            
+            this.setState({
+                loading:true,
+                postError:''
+            })
+
+            firebaseArticles.orderByChild("id")
+            .limitToLast(1).once('value')
+            .then(snapshot =>{
+                let articleId = null;
+                snapshot.forEach(childSnapshot=>{
+                    articleId = childSnapshot.val().id;
+                });
+
+                dataToSubmit['date'] = firebase.database.ServerValue.TIMESTAMP
+                dataToSubmit['id'] = articleId + 1;
+                dataToSubmit['team'] = parseInt(dataToSubmit['team']);
+
+                firebaseArticles.push(dataToSubmit).then(article => {
+                    this.props.history.push(`/articles/${article.key}`)
+                }).catch( e => {
+                    this.setState({
+                        postError: e.message
+                    })
+                })
+            })
+
         }else {
             this.setState({
                 postError: 'Something went wrong'
